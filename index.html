@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Svet idej</title>
+  <style>
+    :root { --navy:#081b3a; --blue:#174a8b; --light:#eaf2ff; --white:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial, sans-serif; background:#f3f6fc; color:#17243a; line-height:1.6; }
+    header { background:linear-gradient(135deg,var(--navy),var(--blue)); color:white; padding:34px 20px 24px; text-align:center; }
+    header h1 { margin:0; font-size:clamp(2.2rem,6vw,3.5rem); letter-spacing:2px; }
+    header p { margin:8px 0 0; color:#d9e7ff; }
+    nav { background:#0d2d59; display:flex; justify-content:center; flex-wrap:wrap; gap:8px; padding:12px; }
+    nav a { color:white; text-decoration:none; padding:9px 16px; border-radius:20px; }
+    nav a:hover { background:#2863a8; }
+    main { max-width:1050px; margin:30px auto; padding:0 18px; }
+    .welcome { background:white; border-radius:18px; padding:28px; box-shadow:0 8px 25px #10294b12; text-align:center; }
+    h2 { color:#123b70; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin:22px 0 34px; }
+    .card { background:white; border-radius:16px; padding:22px; box-shadow:0 6px 20px #10294b12; border-top:4px solid #3977bd; }
+    .card h3 { color:#174a8b; margin-top:0; }
+    .quiz { background:#e5efff; border-radius:16px; padding:24px; margin:24px 0; }
+    button { background:#174a8b; color:white; border:0; padding:11px 18px; border-radius:9px; cursor:pointer; font-size:1rem; }
+    button:hover { background:#0d2d59; }
+    #answer { font-weight:bold; margin-top:12px; }
+    footer { text-align:center; padding:24px; background:#081b3a; color:#d9e7ff; margin-top:40px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SVET IDEJ</h1>
+    <p>Kjer se srečata znanje in zabava!</p>
+  </header>
+  <nav>
+    <a href="#domov">Domov</a>
+    <a href="#zabava">Zabava</a>
+    <a href="#sola">Za šolo</a>
+    <a href="#kviz">Kviz</a>
+  </nav>
+  <main>
+    <section class="welcome" id="domov">
+      <h2>Dobrodošli v Svetu idej!</h2>
+      <p>To je prostor za radovedne, ustvarjalne in vedoželjne. Odkrij zanimivosti, ponovi šolsko snov in se preizkusi v kvizu!</p>
+    </section>
+
+    <section id="zabava">
+      <h2>✨ Zabava in zanimivosti</h2>
+      <div class="grid">
+        <article class="card"><h3>Ali veš?</h3><p>Naš planet Zemlja je star približno 4,5 milijarde let.</p></article>
+        <article class="card"><h3>Ustvarjalni kotiček</h3><p>Vsaka velika zamisel se začne z majhnim vprašanjem. Razmišljaj, raziskuj in ustvarjaj!</p></article>
+        <article class="card"><h3>Izziv dneva</h3><p>Poskusi se danes naučiti nekaj novega in to zanimivost povej še komu.</p></article>
+      </div>
+    </section>
+
+    <section id="sola">
+      <h2>📚 Za šolo</h2>
+      <div class="grid">
+        <article class="card"><h3>Matematika</h3><p>Številke, računanje, geometrija in logične naloge.</p></article>
+        <article class="card"><h3>Slovenščina</h3><p>Branje, pisanje, slovnica in bogatenje besedišča.</p></article>
+        <article class="card"><h3>Splošno znanje</h3><p>Spoznavaj naravo, zgodovino, geografijo in svet okoli sebe.</p></article>
+      </div>
+    </section>
+
+    <section class="quiz" id="kviz">
+      <h2>🧠 Hitri kviz</h2>
+      <p><strong>Kateri planet je znan kot rdeči planet?</strong></p>
+      <button onclick="checkAnswer('Venera')">Venera</button>
+      <button onclick="checkAnswer('Mars')">Mars</button>
+      <button onclick="checkAnswer('Jupiter')">Jupiter</button>
+      <p id="answer" aria-live="polite"></p>
+    </section>
+  </main>
+  <footer>© 2026 Svet idej · Uči se, raziskuj in uživaj!</footer>
+  <script>
+    function checkAnswer(choice) {
+      const result = document.getElementById('answer');
+      result.textContent = choice === 'Mars' ? 'Pravilno! Odlično! 🎉' : 'Poskusi znova. Namig: planet je poimenovan po rimskem bogu vojne.';
+    }
+  </script>
+</body>
+</html>
