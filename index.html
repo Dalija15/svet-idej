@@ -1,512 +1,176 @@
-
 <!DOCTYPE html>
 <html lang="sl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Svet idej – učenje, ustvarjanje, igre, kvizi in brezplačna učna gradiva.">
-<title>Svet idej</title>
-
+<meta name="description" content="Svet idej – učni listi, PDF gradiva, pobarvanke, ustvarjanje, igre in kvizi za učence od 1. do 9. razreda.">
+<title>Svet idej – učenje, ustvarjanje in zabava</title>
 <style>
-:root {
-  --purple:#8054d9;
-  --purple-dark:#6135b3;
-  --pink:#f58bb7;
-  --turquoise:#42c7c1;
-  --yellow:#ffcf5c;
-  --blue:#5799ec;
-  --green:#65c995;
-  --cream:#fffaf0;
-  --text:#30334c;
-  --muted:#74768a;
-  --white:#fff;
+:root{
+  --purple:#7651c9;--purple-dark:#56349e;--pink:#ef83b3;--turquoise:#42bdb6;
+  --yellow:#ffd166;--blue:#5799ec;--green:#65bd8d;--cream:#fffaf2;
+  --ink:#30334c;--muted:#70748a;--white:#fff;--line:#eee8f5;
 }
-
-* {box-sizing:border-box;}
-
-body {
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:var(--cream);
-  color:var(--text);
-}
-
-header {
-  background:linear-gradient(120deg,#8054d9,#ef83b3,#45c5c1);
-  color:white;
-  padding:35px 20px;
-  text-align:center;
-}
-
-.logo {
-  font-size:38px;
-  font-weight:bold;
-  letter-spacing:2px;
-}
-
-header p {font-size:17px;}
-
-nav {
-  background:white;
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:8px;
-  padding:12px;
-  position:sticky;
-  top:0;
-  z-index:10;
-  box-shadow:0 3px 12px #33333312;
-}
-
-nav button {
-  border:0;
-  background:#f0eafa;
-  color:#6135b3;
-  padding:12px 16px;
-  border-radius:12px;
-  cursor:pointer;
-  font-size:15px;
-  font-weight:bold;
-}
-
-nav button:hover,
-nav button.active {
-  background:var(--purple);
-  color:white;
-}
-
-main {
-  max-width:1100px;
-  margin:auto;
-  padding:25px 18px 50px;
-}
-
-.page {display:none;}
-.page.active {display:block;}
-
-.hero {
-  background:linear-gradient(120deg,#8054d9,#5799ec);
-  color:white;
-  border-radius:24px;
-  padding:48px 25px;
-  text-align:center;
-  margin-bottom:28px;
-  box-shadow:0 8px 22px #8054d933;
-}
-
-.hero h1 {font-size:35px;}
-.hero p {font-size:18px;line-height:1.6;}
-
-h2 {color:var(--purple-dark);}
-h3 {color:var(--purple-dark);}
-
-.intro {
-  color:var(--muted);
-  line-height:1.6;
-}
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-  margin:22px 0;
-}
-
-.card {
-  background:white;
-  border-radius:19px;
-  padding:22px;
-  box-shadow:0 4px 15px #39334a12;
-  border:2px solid transparent;
-  transition:.2s;
-}
-
-.card h3 {margin-top:0;}
-.card p {line-height:1.5;color:var(--muted);}
-
-.card-button {
-  width:100%;
-  text-align:left;
-  cursor:pointer;
-  font:inherit;
-  color:inherit;
-}
-
-.card-button:hover {
-  transform:translateY(-4px);
-  border-color:var(--pink);
-  box-shadow:0 7px 20px #8054d922;
-}
-
-.card:nth-child(4n+1) {border-bottom:5px solid var(--purple);}
-.card:nth-child(4n+2) {border-bottom:5px solid var(--pink);}
-.card:nth-child(4n+3) {border-bottom:5px solid var(--turquoise);}
-.card:nth-child(4n+4) {border-bottom:5px solid var(--yellow);}
-
-.btn {
-  display:inline-block;
-  background:var(--purple);
-  color:white;
-  border:0;
-  padding:12px 19px;
-  border-radius:12px;
-  cursor:pointer;
-  font-size:15px;
-  margin:5px 3px;
-  font-weight:bold;
-}
-
-.btn:hover {background:var(--purple-dark);}
-
-.btn-light {
-  background:white;
-  color:var(--purple-dark);
-}
-
-.panel {
-  background:white;
-  border-radius:19px;
-  padding:23px;
-  margin:20px 0;
-  border:1px solid #eee7fa;
-  box-shadow:0 3px 12px #39334a0c;
-}
-
-.subject-list {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:15px;
-}
-
-.subject-list button {
-  border:0;
-  background:#e9f8f6;
-  color:#197b76;
-  border-radius:12px;
-  padding:12px 16px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.subject-list button:hover {
-  background:var(--turquoise);
-  color:white;
-}
-
-.notice {
-  background:#fff5d9;
-  border-left:5px solid var(--yellow);
-  padding:16px;
-  border-radius:10px;
-  line-height:1.5;
-  margin:15px 0;
-}
-
-.quiz-option {
-  display:block;
-  width:100%;
-  text-align:left;
-  padding:14px;
-  margin:9px 0;
-  border:2px solid #eee7fa;
-  border-radius:12px;
-  background:#faf8ff;
-  cursor:pointer;
-  font-size:15px;
-}
-
-.quiz-option:hover {background:#eee7fa;}
-.quiz-option:disabled {cursor:default;}
-
-#quiz-result {font-weight:bold;margin-top:15px;}
-
-.pdf-card {
-  background:#fff;
-  border:2px solid #f5d6e5;
-  border-radius:17px;
-  padding:20px;
-}
-
-.pdf-card h3 {color:#b84c85;}
-
-.pdf-link {
-  display:inline-block;
-  background:#fce7f1;
-  color:#a73c76;
-  padding:10px 15px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
-  margin-top:8px;
-}
-
-.pdf-link:hover {background:#f8cce0;}
-
-footer {
-  background:linear-gradient(120deg,#6135b3,#8054d9);
-  color:white;
-  text-align:center;
-  padding:30px 15px;
-}
-
-footer p {color:#eee4ff;}
-
-.hidden {display:none!important;}
-
-@media(max-width:600px) {
-  .logo {font-size:28px;}
-  .hero h1 {font-size:27px;}
-  nav button {padding:10px;font-size:13px;}
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+header{background:linear-gradient(120deg,var(--purple),var(--pink),var(--turquoise));color:#fff;text-align:center;padding:34px 18px}
+.logo{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:1.5px}
+header p{font-size:17px;margin:10px 0 0}
+nav{position:sticky;top:0;z-index:20;background:#fff;display:flex;justify-content:center;flex-wrap:wrap;gap:7px;padding:11px;box-shadow:0 3px 14px #27213b16}
+nav button{border:0;border-radius:12px;background:#f0eafa;color:var(--purple-dark);padding:11px 14px;font-weight:700;font-size:14px;cursor:pointer}
+nav button:hover,nav button.active{background:var(--purple);color:#fff}
+main{max-width:1150px;margin:auto;padding:25px 18px 55px}
+.page{display:none}.page.active{display:block}
+.hero{background:linear-gradient(120deg,var(--purple),var(--blue));color:#fff;border-radius:24px;padding:42px 22px;text-align:center;margin-bottom:28px;box-shadow:0 8px 24px #7651c933}
+.hero h1{font-size:clamp(27px,4vw,38px);margin:0 0 12px}.hero p{font-size:18px;line-height:1.6;max-width:720px;margin:0 auto 15px}
+h2,h3{color:var(--purple-dark)}h2{margin-top:8px}
+.intro{color:var(--muted);line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;margin:20px 0}
+.card,.panel,.resource-card{background:#fff;border-radius:18px;padding:20px;box-shadow:0 4px 15px #39334a10;border:1px solid var(--line)}
+.card h3,.resource-card h3{margin-top:0}.card p,.resource-card p{color:var(--muted);line-height:1.5}
+.card-button{width:100%;text-align:left;cursor:pointer;font:inherit;color:inherit;transition:.18s}
+.card-button:hover{transform:translateY(-3px);border-color:var(--pink);box-shadow:0 8px 20px #7651c91c}
+.card:nth-child(4n+1){border-bottom:5px solid var(--purple)}.card:nth-child(4n+2){border-bottom:5px solid var(--pink)}.card:nth-child(4n+3){border-bottom:5px solid var(--turquoise)}.card:nth-child(4n+4){border-bottom:5px solid var(--yellow)}
+.btn,.link-btn{display:inline-block;background:var(--purple);color:#fff;border:0;border-radius:11px;padding:11px 16px;margin:5px 3px;text-decoration:none;font-weight:700;cursor:pointer;font-size:14px}
+.btn:hover,.link-btn:hover{background:var(--purple-dark)}
+.btn-light{background:#fff;color:var(--purple-dark)}
+.btn-light:hover{background:#f4efff}
+.panel{margin:20px 0;padding:22px}
+.notice{background:#fff5d9;border-left:5px solid var(--yellow);padding:14px 16px;border-radius:10px;line-height:1.55;margin:15px 0}
+.subject-list,.filters{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
+.subject-list button,.filter-chip{border:0;background:#e6f7f4;color:#18766f;border-radius:11px;padding:10px 14px;cursor:pointer;font-weight:700}
+.subject-list button:hover,.filter-chip:hover,.filter-chip.active{background:var(--turquoise);color:#fff}
+.hidden{display:none!important}
+input,select{font:inherit;border:1px solid #dcd5e8;border-radius:11px;padding:12px;background:#fff;color:var(--ink);max-width:100%}
+.searchbar{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.searchbar input{flex:1;min-width:220px}
+.resource-card{display:flex;flex-direction:column;gap:8px}
+.resource-card .meta{font-size:13px;color:var(--muted)}
+.resource-card .actions{margin-top:auto}
+.resource-card h3{margin-bottom:0}
+.tag{display:inline-block;background:#f2ecff;color:var(--purple-dark);padding:5px 9px;border-radius:20px;font-size:12px;font-weight:700;margin:2px}
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px;margin:18px 0}
+.art-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+.art-card h3{margin:0 0 7px}
+.quiz-option{display:block;width:100%;text-align:left;padding:13px;margin:9px 0;border:2px solid var(--line);border-radius:12px;background:#faf8ff;cursor:pointer;font-size:15px}
+.quiz-option:hover{background:#eee7fa}.quiz-option:disabled{cursor:default}
+#quiz-result{font-weight:bold;margin-top:15px}
+footer{background:linear-gradient(120deg,var(--purple-dark),var(--purple));color:#fff;text-align:center;padding:28px 15px}
+footer p{color:#eee4ff}
+.small{font-size:13px;color:var(--muted);line-height:1.5}
+@media(max-width:600px){nav button{padding:9px 10px;font-size:12px}.hero{padding:32px 18px}.panel{padding:17px}}
 </style>
 </head>
-
 <body>
-
 <header>
   <div class="logo">💡 SVET IDEJ</div>
   <p>Prostor za učenje, ustvarjanje, zabavo in nove ideje!</p>
 </header>
 
-<nav>
+<nav aria-label="Glavni meni">
   <button class="active" onclick="showPage('domov',this)">🏠 Domov</button>
   <button onclick="showPage('ucenje',this)">📚 Učenje</button>
-  <button onclick="showPage('pdf',this)">📄 PDF gradiva</button>
+  <button onclick="showPage('gradiva',this)">📄 PDF gradiva</button>
+  <button onclick="showPage('pobarvanke',this)">🖍️ Pobarvanke</button>
   <button onclick="showPage('ustvarjanje',this)">🎨 Ustvarjanje</button>
   <button onclick="showPage('zabava',this)">🎮 Zabava</button>
   <button onclick="showPage('kvizi',this)">🧠 Kvizi</button>
 </nav>
 
 <main>
-
-<!-- DOMOV -->
 <section id="domov" class="page active">
-
-<div class="hero">
-  <h1>Dobrodošli v Svetu idej! 🌈</h1>
-  <p>
-    Tukaj se učimo, raziskujemo, ustvarjamo in zabavamo.
-    Vsak dan lahko odkriješ nekaj novega!
-  </p>
-  <button class="btn" onclick="showPage('ucenje')">📚 Razišči učenje</button>
-  <button class="btn btn-light" onclick="showPage('pdf')">📄 Učni listi PDF</button>
-</div>
-
-<h2>✨ Kaj lahko počneš?</h2>
-
-<div class="grid">
-  <button class="card card-button" onclick="showPage('ucenje')">
-    <h3>📚 Učni kotiček</h3>
-    <p>Učenje in šolski predmeti od 1. do 9. razreda.</p>
-  </button>
-
-  <button class="card card-button" onclick="showPage('ustvarjanje')">
-    <h3>🎨 Ustvarjalni kotiček</h3>
-    <p>Pobarvanke, papirnate ustvarjalnice in ideje.</p>
-  </button>
-
-  <button class="card card-button" onclick="showPage('zabava')">
-    <h3>🎮 Zabava</h3>
-    <p>Uganke, besedne igre in zanimivi izzivi.</p>
-  </button>
-
-  <button class="card card-button" onclick="showPage('kvizi')">
-    <h3>🧠 Kvizi</h3>
-    <p>Preizkusi svoje znanje in zberi točke.</p>
-  </button>
-</div>
-
-<div class="panel">
-  <h2>🌟 Naša ideja</h2>
-  <p class="intro">
-    Svet idej je spletno mesto za radovedne učence.
-    Namenjeno je učenju, raziskovanju, ustvarjanju
-    in kakovostnemu preživljanju prostega časa.
-  </p>
-</div>
+  <div class="hero">
+    <h1>Dobrodošli v Svetu idej! 🌈</h1>
+    <p>Uči se, poišči učne liste, natisni pobarvanko, ustvarjaj in se zabavaj. Vse na enem mestu!</p>
+    <button class="btn" onclick="showPage('gradiva')">📄 Poišči učne liste</button>
+    <button class="btn btn-light" onclick="showPage('pobarvanke')">🖍️ Oglej si pobarvanke</button>
+  </div>
+  <h2>✨ Razišči kotičke</h2>
+  <div class="grid">
+    <button class="card card-button" onclick="showPage('ucenje')"><h3>📚 Učni kotiček</h3><p>Predmeti in vsebine za učence od 1. do 9. razreda.</p></button>
+    <button class="card card-button" onclick="showPage('gradiva')"><h3>📄 Knjižnica gradiv</h3><p>Povezave do brezplačnih učnih listov, vaj in PDF-virov.</p></button>
+    <button class="card card-button" onclick="showPage('pobarvanke')"><h3>🖍️ Pobarvanke</h3><p>Živali, narava, letni časi, številke in še več.</p></button>
+    <button class="card card-button" onclick="showPage('ustvarjanje')"><h3>🎨 Ustvarjalni kotiček</h3><p>Papirnate ustvarjalnice, risanje in ideje za izdelke.</p></button>
+    <button class="card card-button" onclick="showPage('zabava')"><h3>🎮 Zabava</h3><p>Uganke, besedne igre in logični izzivi.</p></button>
+    <button class="card card-button" onclick="showPage('kvizi')"><h3>🧠 Kvizi</h3><p>Preizkusi svoje znanje in spremljaj točke.</p></button>
+  </div>
+  <div class="panel"><h2>🌟 Naša ideja</h2><p class="intro">Svet idej je prostor za radovedne učence. Zbiramo povezave do uporabnih učnih gradiv in ideje za ustvarjanje. Gradiva odpiramo na izvirnih spletnih straneh, kjer lahko preveriš pogoje uporabe in prenosa.</p></div>
 </section>
 
-
-<!-- UČENJE -->
 <section id="ucenje" class="page">
-
-<h2>📚 UČNI KOTIČEK</h2>
-<p class="intro">Izberi razred in odkrij šolske predmete.</p>
-
-<div class="panel">
-<h3>📘 1.–5. razred</h3>
-<div class="grid">
-  <button class="card card-button" onclick="showGrade(1)"><h3>1. razred</h3><p>Prve črke, branje in števila.</p></button>
-  <button class="card card-button" onclick="showGrade(2)"><h3>2. razred</h3><p>Branje, pisanje in računanje.</p></button>
-  <button class="card card-button" onclick="showGrade(3)"><h3>3. razred</h3><p>Množenje, deljenje in narava.</p></button>
-  <button class="card card-button" onclick="showGrade(4)"><h3>4. razred</h3><p>Večja števila, družba in narava.</p></button>
-  <button class="card card-button" onclick="showGrade(5)"><h3>5. razred</h3><p>Ulomki, zgodovina in geografija.</p></button>
-</div>
-</div>
-
-<div class="panel">
-<h3>📗 6.–9. razred</h3>
-<div class="grid">
-  <button class="card card-button" onclick="showGrade(6)"><h3>6. razred</h3><p>Osnovna znanja in novi predmeti.</p></button>
-  <button class="card card-button" onclick="showGrade(7)"><h3>7. razred</h3><p>Slovnica, zgodovina in geografija.</p></button>
-  <button class="card card-button" onclick="showGrade(8)"><h3>8. razred</h3><p>Biologija, fizika in kemija.</p></button>
-  <button class="card card-button" onclick="showGrade(9)"><h3>9. razred</h3><p>Ponavljanje in utrjevanje znanja.</p></button>
-</div>
-</div>
-
-<div id="grade-content" class="panel hidden">
-<h3 id="grade-title">Predmeti</h3>
-<p class="intro">Izberi predmet.</p>
-<div id="subject-buttons" class="subject-list"></div>
-<div id="subject-content" class="panel hidden"></div>
-</div>
-
+  <h2>📚 UČNI KOTIČEK</h2>
+  <p class="intro">Izberi razred in predmet. Pri predmetih najdeš bližnjice do učnih virov in vaj.</p>
+  <div class="panel"><h3>📘 1.–5. razred</h3><div class="grid" id="lower-grades"></div></div>
+  <div class="panel"><h3>📗 6.–9. razred</h3><div class="grid" id="upper-grades"></div></div>
+  <div id="grade-content" class="panel hidden"><h3 id="grade-title">Predmeti</h3><p class="intro">Izberi predmet in odpri primerne vire.</p><div id="subject-buttons" class="subject-list"></div><div id="subject-content" class="resource-grid"></div></div>
 </section>
 
-
-<!-- PDF GRADIVA -->
-<section id="pdf" class="page">
-
-<h2>📄 UČNI LISTI IN PDF GRADIVA</h2>
-<p class="intro">
-  Poišči učne liste, ponavljaj snov in utrjuj svoje znanje.
-  Gradiva bomo dodajali postopoma.
-</p>
-
-<div class="notice">
-  📌 Tukaj bodo zbrani učni listi za tiskanje, ponavljanje
-  in samostojno učenje.
-</div>
-
-<div class="panel">
-<h3>📘 Izberi razred</h3>
-<div class="grid">
-  <button class="card card-button" onclick="showPDFGrade(1)">1. razred</button>
-  <button class="card card-button" onclick="showPDFGrade(2)">2. razred</button>
-  <button class="card card-button" onclick="showPDFGrade(3)">3. razred</button>
-  <button class="card card-button" onclick="showPDFGrade(4)">4. razred</button>
-  <button class="card card-button" onclick="showPDFGrade(5)">5. razred</button>
-  <button class="card card-button" onclick="showPDFGrade(6)">6. razred</button>
-  <button class="card card-button" onclick="showPDFGrade(7)">7. razred</button>
-  <button class="card card-button" onclick="showPDFGrade(8)">8. razred</button>
-  <button class="card card-button" onclick="showPDFGrade(9)">9. razred</button>
-</div>
-</div>
-
-<div id="pdf-content" class="panel hidden">
-<h3 id="pdf-title">PDF gradiva</h3>
-<p>Izberi predmet:</p>
-<div id="pdf-subjects" class="subject-list"></div>
-<div id="pdf-results"></div>
-</div>
-
+<section id="gradiva" class="page">
+  <h2>📄 KNJIŽNICA UČNIH LISTOV IN PDF GRADIV</h2>
+  <p class="intro">Poišči delovne liste, vaje in dodatna gradiva. Povezave vodijo na izvirne spletne strani, kjer so na voljo prenosi ali spletne naloge.</p>
+  <div class="notice">📌 Pomembno: ne gre za datoteke, ki bi bile shranjene na Svetu idej. Odprejo se na spletnih straneh ponudnikov. Pred uporabo preveri, ali je posamezno gradivo brezplačno in kakšni so pogoji uporabe.</div>
+  <div class="panel">
+    <h3>🔎 Poišči gradivo</h3>
+    <div class="searchbar">
+      <input id="resource-search" type="search" placeholder="Vpiši npr. matematika, branje, naravoslovje ..." oninput="renderResources()">
+      <select id="resource-grade" onchange="renderResources()"><option value="all">Vsi razredi</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select>
+      <select id="resource-type" onchange="renderResources()"><option value="all">Vse vrste</option><option value="list">Učni listi</option><option value="interactive">Interaktivne vaje</option><option value="reference">Zbirke gradiv</option></select>
+    </div>
+    <div class="filters">
+      <button class="filter-chip active" onclick="setQuickFilter('all',this)">Vse</button>
+      <button class="filter-chip" onclick="setQuickFilter('1-5',this)">1.–5. razred</button>
+      <button class="filter-chip" onclick="setQuickFilter('6-9',this)">6.–9. razred</button>
+    </div>
+    <p id="resource-count" class="small" aria-live="polite"></p>
+    <div id="resource-results" class="resource-grid"></div>
+  </div>
 </section>
 
+<section id="pobarvanke" class="page">
+  <h2>🖍️ POBARVANKE ZA TISKANJE</h2>
+  <p class="intro">Izberi temo in odpri zbirko pobarvank. Na izvirni strani lahko izbereš motiv in ga natisneš ali shraniš, če ponudnik to omogoča.</p>
+  <div class="resource-grid">
+    <article class="resource-card"><h3>🐾 Živali in narava</h3><p>Pobarvanke živali, rastlin in naravnih motivov.</p><div class="actions"><a class="link-btn" href="https://nova.otroci.org/index.php/predsolski/predsolske-pobarvanke-galerija/" target="_blank" rel="noopener noreferrer">Odpri pobarvanke</a></div><p class="small">Otroci.org – galerija pobarvank za tisk.</p></article>
+    <article class="resource-card"><h3>❄️ Zima</h3><p>Snežaki, zimske živali in zimski prizori.</p><div class="actions"><a class="link-btn" href="https://doodleur.com/sl/pobarvanke/zima" target="_blank" rel="noopener noreferrer">Odpri zimske pobarvanke</a></div><p class="small">Doodleur – brezplačne pobarvanke za tiskanje.</p></article>
+    <article class="resource-card"><h3>🔢 Številke</h3><p>Pobarvanke s številkami in motivi za štetje.</p><div class="actions"><a class="link-btn" href="https://doodleur.com/sl/pobarvanke/stevilke" target="_blank" rel="noopener noreferrer">Odpri pobarvanke števil</a></div><p class="small">Doodleur – zbirka številk.</p></article>
+    <article class="resource-card"><h3>🦊 Posamezne živali</h3><p>Na primer lisica in drugi živalski motivi.</p><div class="actions"><a class="link-btn" href="https://omalovankypredeti.eu/sl/liska/" target="_blank" rel="noopener noreferrer">Odpri pobarvanko lisice</a></div><p class="small">Pobarvanka za tiskanje ali PDF, če je na strani na voljo.</p></article>
+    <article class="resource-card"><h3>🌈 Različne teme</h3><p>Živali, fantazija, vozila, narava, prazniki in mandale.</p><div class="actions"><a class="link-btn" href="https://doodleur.com/sl/" target="_blank" rel="noopener noreferrer">Razišči vse pobarvanke</a></div><p class="small">Doodleur – zbirka motivov različnih težavnosti.</p></article>
+  </div>
+  <div class="notice">🖨️ Namig: pri tiskanju izberi papir A4 in preveri predogled tiskanja. Upoštevaj pogoje uporabe posamezne strani.</div>
+</section>
 
-<!-- USTVARJANJE -->
 <section id="ustvarjanje" class="page">
-
-<h2>🎨 USTVARJALNI KOTIČEK</h2>
-<p class="intro">Ustvarjaj, raziskuj in razvijaj svojo domišljijo!</p>
-
-<div class="grid">
-  <button class="card card-button" onclick="creative('Papirnate ustvarjalnice')"><h3>✂️ Papirnate ustvarjalnice</h3><p>Izdelki iz papirja in origami.</p></button>
-  <button class="card card-button" onclick="creative('Pobarvanke')"><h3>🖍️ Pobarvanke</h3><p>Živali, narava in prazniki.</p></button>
-  <button class="card card-button" onclick="creative('Odpadni materiali')"><h3>♻️ Odpadni materiali</h3><p>Izdelki iz tulcev in škatel.</p></button>
-  <button class="card card-button" onclick="creative('Praznično ustvarjanje')"><h3>🎄 Praznično ustvarjanje</h3><p>Ideje za praznične dni.</p></button>
-  <button class="card card-button" onclick="creative('Risanje po korakih')"><h3>✏️ Risanje po korakih</h3><p>Nauči se risati različne motive.</p></button>
-  <button class="card card-button" onclick="creative('Voščilnice')"><h3>💌 Voščilnice</h3><p>Voščilnice za posebne priložnosti.</p></button>
-</div>
-
-<div id="creative-content" class="panel hidden"></div>
+  <h2>🎨 USTVARJALNI KOTIČEK</h2><p class="intro">Ustvarjaj, raziskuj in razvijaj domišljijo!</p>
+  <div class="grid">
+    <article class="card"><h3>✂️ Papirnate ustvarjalnice</h3><p>Izdelaj papirnate rože, origami, voščilnice ali okraske.</p></article>
+    <article class="card"><h3>♻️ Odpadni materiali</h3><p>Iz tulcev, škatel in papirja izdelaj nove uporabne predmete.</p></article>
+    <article class="card"><h3>✏️ Risanje po korakih</h3><p>Začni z osnovnimi oblikami in postopoma nariši žival ali predmet.</p></article>
+    <article class="card"><h3>💌 Voščilnice</h3><p>Ustvari voščilnico za rojstni dan, praznike ali zahvalo.</p></article>
+    <article class="card"><h3>🍂 Letni časi</h3><p>Ustvarjaj z motivi pomladi, poletja, jeseni in zime.</p></article>
+    <article class="card"><h3>📎 Mini izziv</h3><p>Izberi tri barve in iz papirja sestavi čisto svoj izdelek.</p></article>
+  </div>
 </section>
 
-
-<!-- ZABAVA -->
 <section id="zabava" class="page">
-
-<h2>🎮 ZABAVA</h2>
-<p class="intro">Malo razvedrila in veliko zabave!</p>
-
-<div class="grid">
-  <div class="card">
-    <h3>🧩 Uganka</h3>
-    <p>Imam štiri noge, a ne hodim. Kaj sem?</p>
-    <button class="btn" onclick="showAnswer()">Pokaži odgovor</button>
-    <p id="riddle-answer" class="hidden"><b>Miza!</b></p>
+  <h2>🎮 ZABAVA</h2><p class="intro">Malo razvedrila in veliko zabave!</p>
+  <div class="grid">
+    <div class="card"><h3>🧩 Uganka</h3><p>Imam štiri noge, a ne hodim. Kaj sem?</p><button class="btn" onclick="toggleAnswer('riddle-answer')">Pokaži odgovor</button><p id="riddle-answer" class="hidden"><b>Miza!</b></p></div>
+    <div class="card"><h3>🔤 Besedna igra</h3><p>Koliko besed lahko sestaviš iz črk besede DOM?</p><button class="btn" onclick="toggleAnswer('word-answer')">Namig</button><p id="word-answer" class="hidden">Na primer: dom, mod.</p></div>
+    <div class="card"><h3>🧠 Logični izziv</h3><p>Koliko je 3 + 3 × 2?</p><button class="btn" onclick="toggleAnswer('logic-answer')">Preveri</button><p id="logic-answer" class="hidden">Odgovor je 9, ker najprej množimo.</p></div>
+    <div class="card"><h3>🌍 Zanimivost</h3><p>Hobotnica nima kosti. Njeno telo je zelo prožno!</p></div>
   </div>
-
-  <div class="card">
-    <h3>🔤 Besedna igra</h3>
-    <p>Koliko besed lahko sestaviš iz črk besede DOM?</p>
-    <button class="btn" onclick="document.getElementById('word-answer').classList.toggle('hidden')">Namig</button>
-    <p id="word-answer" class="hidden">Na primer: dom, mod.</p>
-  </div>
-
-  <div class="card">
-    <h3>🧠 Logični izziv</h3>
-    <p>Koliko je 3 + 3 × 2?</p>
-    <button class="btn" onclick="document.getElementById('logic-answer').classList.toggle('hidden')">Preveri</button>
-    <p id="logic-answer" class="hidden">Odgovor je 9.</p>
-  </div>
-
-  <div class="card">
-    <h3>🌍 Zanimivost</h3>
-    <p>Hobotnica nima kosti. Njeno telo je zelo prožno!</p>
-  </div>
-</div>
 </section>
 
-
-<!-- KVIZI -->
 <section id="kvizi" class="page">
-
-<h2>🧠 KVIZI</h2>
-<p class="intro">Odgovori na vprašanja in preveri svoje znanje!</p>
-
-<div class="panel">
-<h3>🌟 Splošni kviz</h3>
-<p id="question-number"></p>
-<h3 id="question-text"></h3>
-<div id="quiz-options"></div>
-<p id="quiz-result"></p>
-<p id="quiz-score"></p>
-<button id="next-question" class="btn hidden" onclick="nextQuestion()">Naslednje vprašanje</button>
-<button id="restart-quiz" class="btn hidden" onclick="startQuiz()">Ponovi kviz</button>
-</div>
+  <h2>🧠 KVIZI</h2><p class="intro">Odgovori na vprašanja in preveri svoje znanje!</p>
+  <div class="panel"><h3>🌟 Splošni kviz</h3><p id="question-number"></p><h3 id="question-text"></h3><div id="quiz-options"></div><p id="quiz-result" aria-live="polite"></p><p id="quiz-score"></p><button id="next-question" class="btn hidden" onclick="nextQuestion()">Naslednje vprašanje</button><button id="restart-quiz" class="btn hidden" onclick="startQuiz()">Ponovi kviz</button></div>
 </section>
-
 </main>
 
-<footer>
-<h3>💡 SVET IDEJ</h3>
-<p>Učenje · Ustvarjanje · Zabava · Znanje</p>
-<p>Vsak dan je priložnost za novo idejo! 🌈</p>
-</footer>
-
+<footer><h3 style="color:white">💡 SVET IDEJ</h3><p>Učenje · Ustvarjanje · Pobarvanke · Zabava · Znanje</p><p>Vsak dan je priložnost za novo idejo! 🌈</p></footer>
 
 <script>
-
-function showPage(id,button) {
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-
-  if(button) {
-    button.classList.add('active');
-  } else {
-    const navButton=[...document.querySelectorAll('nav button')]
-      .find(b=>b.getAttribute('onclick')?.includes("'" + id + "'"));
-    if(navButton) navButton.classList.add('active');
-  }
-
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-const subjects = {
+const subjects={
   1:['Slovenščina','Matematika','Spoznavanje okolja'],
   2:['Slovenščina','Matematika','Spoznavanje okolja','Angleščina'],
   3:['Slovenščina','Matematika','Angleščina','Spoznavanje okolja'],
@@ -518,219 +182,103 @@ const subjects = {
   9:['Slovenščina','Matematika','Angleščina','Zgodovina','Geografija','Biologija','Kemija','Fizika','Tehnika']
 };
 
-function showGrade(grade) {
-  const area=document.getElementById('grade-content');
-  const buttons=document.getElementById('subject-buttons');
-  const content=document.getElementById('subject-content');
-
-  area.classList.remove('hidden');
-  content.classList.add('hidden');
-  document.getElementById('grade-title').textContent=grade+'. razred – predmeti';
-  buttons.innerHTML='';
-
-  subjects[grade].forEach(subject=>{
-    const button=document.createElement('button');
-    button.textContent=subject;
-    button.onclick=()=>showSubject(grade,subject);
-    buttons.appendChild(button);
-  });
-
-  area.scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-function showSubject(grade,subject) {
-  const content=document.getElementById('subject-content');
-  content.classList.remove('hidden');
-  content.innerHTML=`
-    <h3>${subject} – ${grade}. razred</h3>
-    <p>Na tem mestu bodo učni listi, naloge in vaje.</p>
-    <div class="notice">📚 Vsebino bomo dodajali postopoma.</div>
-  `;
-}
-
-function showPDFGrade(grade) {
-  const area=document.getElementById('pdf-content');
-  const buttons=document.getElementById('pdf-subjects');
-  const results=document.getElementById('pdf-results');
-
-  area.classList.remove('hidden');
-  results.innerHTML='';
-  document.getElementById('pdf-title').textContent=grade+'. razred – PDF gradiva';
-  buttons.innerHTML='';
-
-  subjects[grade].forEach(subject=>{
-    const button=document.createElement('button');
-    button.textContent=subject;
-    button.onclick=()=>showPDFSubject(grade,subject);
-    buttons.appendChild(button);
-  });
-
-  area.scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-/* Tukaj bova dodajali preverjena PDF gradiva.
-   Primer:
-   {grade:5, subject:'Geografija', title:'Učni list', url:'pdf/ucni-list.pdf'}
-*/
-const pdfResources=[];
-
-function showPDFSubject(grade,subject) {
-  const results=document.getElementById('pdf-results');
-  results.innerHTML='';
-
-  const matching=pdfResources.filter(item=>
-    item.grade===grade && item.subject===subject
-  );
-
-  const title=document.createElement('h3');
-  title.textContent=subject+' – '+grade+'. razred';
-  results.appendChild(title);
-
-  if(matching.length===0) {
-    const message=document.createElement('div');
-    message.className='notice';
-    message.textContent='📄 Učni listi za ta predmet bodo dodani postopoma.';
-    results.appendChild(message);
-    return;
-  }
-
-  matching.forEach(item=>{
-    const card=document.createElement('div');
-    card.className='pdf-card';
-
-    const heading=document.createElement('h3');
-    heading.textContent='📄 '+item.title;
-
-    const link=document.createElement('a');
-    link.className='pdf-link';
-    link.href=item.url;
-    link.target='_blank';
-    link.rel='noopener noreferrer';
-    link.textContent='Odpri PDF';
-
-    card.append(heading,link);
-    results.appendChild(card);
-  });
-}
-
-function creative(category) {
-  const content=document.getElementById('creative-content');
-  content.classList.remove('hidden');
-
-  const ideas={
-    'Papirnate ustvarjalnice':'Izdelaj papirnate rože, živali ali origami.',
-    'Pobarvanke':'Kmalu bodo na voljo pobarvanke za tiskanje.',
-    'Odpadni materiali':'Iz tulcev in škatel ustvari nove izdelke.',
-    'Praznično ustvarjanje':'Odkrij ideje za praznike.',
-    'Risanje po korakih':'Nauči se risati različne motive.',
-    'Voščilnice':'Ustvari posebno voščilnico.'
-  };
-
-  const heading=document.createElement('h3');
-  heading.textContent=category;
-
-  const paragraph=document.createElement('p');
-  paragraph.textContent=ideas[category];
-
-  const notice=document.createElement('div');
-  notice.className='notice';
-  notice.textContent='🎨 Ideje in navodila bomo dodajali postopoma.';
-
-  content.replaceChildren(heading,paragraph,notice);
-  content.scrollIntoView({behavior:'smooth',block:'center'});
-}
-
-function showAnswer() {
-  document.getElementById('riddle-answer').classList.remove('hidden');
-}
-
-
-// KVIZ
-
-const questions=[
-  {question:'Kateri planet je najbližje Soncu?',options:['Mars','Merkur','Jupiter'],answer:1},
-  {question:'Koliko je 7 × 8?',options:['54','56','64'],answer:1},
-  {question:'Katera žival je največja na svetu?',options:['Modri kit','Slon','Žirafa'],answer:0},
-  {question:'Katero je glavno mesto Slovenije?',options:['Maribor','Koper','Ljubljana'],answer:2},
-  {question:'Koliko dni ima prestopno leto?',options:['365','366','364'],answer:1}
+const resources=[
+ {title:'EduPrintables – delovni listi za tiskanje',desc:'Računske vaje, branje, pisanje, črke, labirinti in generatorji delovnih listov. Na voljo so tudi PDF-ji.',grades:[1,2,3,4],subjects:['Slovenščina','Matematika','Angleščina'],type:'list',url:'https://eduprintables.com/sl/',label:'Delovni listi in PDF'},
+ {title:'EduPrintables – učni listi po razredih',desc:'Izbira gradiv za 1.–4. razred in predmete, kot so matematika, slovenščina in spoznavanje okolja.',grades:[1,2,3,4],subjects:['Slovenščina','Matematika','Spoznavanje okolja'],type:'list',url:'https://eduprintables.com/sl/razredi',label:'Gradiva po razredih'},
+ {title:'Učiteljska.net – zbirka učnih gradiv',desc:'Velika zbirka gradiv in povezav za osnovno šolo. Uporabi iskanje na strani in preveri pogoje posameznega prispevka.',grades:[1,2,3,4,5,6,7,8,9],subjects:['Slovenščina','Matematika','Angleščina','Družba','Naravoslovje','Zgodovina','Geografija','Biologija','Kemija','Fizika'],type:'reference',url:'https://www.uciteljska.net/',label:'Zbirka gradiv'},
+ {title:'Učimo se – dodatna gradiva',desc:'Dodatna gradiva za učence in učitelje; pri posameznih gradivih preveri, ali so namenjena učencem in kakšni so pogoji uporabe.',grades:[1,2,3,4,5,6,7,8,9],subjects:['Slovenščina','Matematika','Naravoslovje'],type:'reference',url:'https://ucimte.com/',label:'Dodatna gradiva'},
+ {title:'MOCIS – brezplačna e-gradiva',desc:'Povezave do i-učbenikov in drugih e-gradiv za osnovno šolo, med drugim naravoslovje, slovenščina in zgodovina.',grades:[4,5,6,7,8,9],subjects:['Slovenščina','Naravoslovje','Zgodovina'],type:'interactive',url:'https://mocisdev.splet.arnes.si/brezplacna-gradiva/',label:'Brezplačna e-gradiva'},
+ {title:'Interaktivna in dodatna gradiva iRokus',desc:'Dodatna gradiva in rešitve nalog v PDF-obliki za določene učne komplete. Nekatere vsebine so namenjene uporabnikom posameznih učbenikov.',grades:[6,7,8,9],subjects:['Slovenščina'],type:'reference',url:'https://irokus.rokus-klett.si/moj-predmet/osnovna-sola/slovenscina-69/prihranite-cas',label:'Dodatna gradiva in PDF'},
+ {title:'Učni načrti osnovne šole – GOV.SI',desc:'Uradni učni načrti za preverjanje tem in usklajenosti gradiv s šolskimi predmeti. To niso delovni listi za učence.',grades:[1,2,3,4,5,6,7,8,9],subjects:['Vsi predmeti'],type:'reference',url:'https://www.gov.si/teme/programi-in-ucni-nacrti-v-osnovni-soli/',label:'Uradni učni načrti'}
 ];
 
-let currentQuestion=0;
-let score=0;
-let answered=false;
-
-function startQuiz() {
-  currentQuestion=0;
-  score=0;
-  document.getElementById('restart-quiz').classList.add('hidden');
-  showQuestion();
+function showPage(id,button){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ if(button)button.classList.add('active');
+ else{const b=[...document.querySelectorAll('nav button')].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.classList.add('active');}
+ window.scrollTo({top:0,behavior:'smooth'});
 }
-
-function showQuestion() {
-  answered=false;
-  const q=questions[currentQuestion];
-
-  document.getElementById('question-number').textContent=
-    'Vprašanje '+(currentQuestion+1)+' od '+questions.length;
-  document.getElementById('question-text').textContent=q.question;
-  document.getElementById('quiz-result').textContent='';
-  document.getElementById('quiz-score').textContent='';
-  document.getElementById('next-question').classList.add('hidden');
-
-  const options=document.getElementById('quiz-options');
-  options.innerHTML='';
-
-  q.options.forEach((option,index)=>{
-    const button=document.createElement('button');
-    button.className='quiz-option';
-    button.textContent=option;
-    button.onclick=()=>checkAnswer(index);
-    options.appendChild(button);
-  });
+function makeGradeButtons(){
+ for(let g=1;g<=9;g++){
+  const b=document.createElement('button');b.className='card card-button';
+  b.innerHTML='<h3>'+g+'. razred</h3><p>'+ (g<=5?'1.–5. razred':'6.–9. razred')+' · izberi predmete in vire</p>';
+  b.onclick=()=>showGrade(g);document.getElementById(g<=5?'lower-grades':'upper-grades').appendChild(b);
+ }
 }
-
-function checkAnswer(index) {
-  if(answered) return;
-  answered=true;
-
-  const correct=questions[currentQuestion].answer;
-  const buttons=document.querySelectorAll('.quiz-option');
-
-  if(index===correct) {
-    score++;
-    document.getElementById('quiz-result').textContent='✅ Odlično! Pravilen odgovor.';
-  } else {
-    document.getElementById('quiz-result').textContent=
-      '❌ Pravilen odgovor je: '+questions[currentQuestion].options[correct]+'.';
-  }
-
-  buttons.forEach((button,i)=>{
-    button.disabled=true;
-    if(i===correct) {
-      button.style.borderColor='#65c995';
-      button.style.background='#e7f8ee';
-    }
-  });
-
-  document.getElementById('quiz-score').textContent=
-    'Tvoje točke: '+score+' / '+questions.length;
-
-  if(currentQuestion<questions.length-1) {
-    document.getElementById('next-question').classList.remove('hidden');
-  } else {
-    document.getElementById('quiz-result').textContent+=' Kviz je končan!';
-    document.getElementById('restart-quiz').classList.remove('hidden');
-  }
+function showGrade(grade){
+ const area=document.getElementById('grade-content'),buttons=document.getElementById('subject-buttons'),content=document.getElementById('subject-content');
+ area.classList.remove('hidden');content.innerHTML='';document.getElementById('grade-title').textContent=grade+'. razred – predmeti';buttons.innerHTML='';
+ subjects[grade].forEach(subject=>{const b=document.createElement('button');b.textContent=subject;b.onclick=()=>showSubject(grade,subject);buttons.appendChild(b);});
+ area.scrollIntoView({behavior:'smooth',block:'start'});
 }
-
-function nextQuestion() {
-  currentQuestion++;
-  showQuestion();
+function showSubject(grade,subject){
+ const content=document.getElementById('subject-content');content.innerHTML='';
+ const matches=resources.filter(r=>r.grades.includes(grade)&&(r.subjects.includes(subject)||r.subjects.includes('Vsi predmeti')));
+ if(!matches.length){content.innerHTML='<div class="notice">Za ta predmet trenutno še nimamo preverjene povezave. V knjižnici gradiv lahko poiščeš širšo zbirko.</div>';return;}
+ matches.forEach(r=>content.appendChild(resourceCard(r,grade)));
 }
+function resourceCard(r,grade){
+ const card=document.createElement('article');card.className='resource-card';
+ const h=document.createElement('h3');h.textContent=r.title;
+ const p=document.createElement('p');p.textContent=r.desc;
+ const meta=document.createElement('div');meta.className='meta';meta.textContent='Primerno za razrede: '+r.grades.join(', ')+' · '+r.label;
+ const actions=document.createElement('div');actions.className='actions';
+ const a=document.createElement('a');a.className='link-btn';a.href=r.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Odpri vir ↗';
+ actions.appendChild(a);card.append(h,p,meta,actions);return card;
+}
+let quickFilter='all';
+function setQuickFilter(value,button){
+ quickFilter=value;document.querySelectorAll('.filter-chip').forEach(b=>b.classList.remove('active'));button.classList.add('active');renderResources();
+}
+function renderResources(){
+ const q=(document.getElementById('resource-search')?.value||'').toLowerCase().trim();
+ const grade=document.getElementById('resource-grade')?.value||'all';
+ const type=document.getElementById('resource-type')?.value||'all';
+ const filtered=resources.filter(r=>{
+  const matchesText=(r.title+' '+r.desc+' '+r.subjects.join(' ')+' '+r.label).toLowerCase().includes(q);
+  const matchesGrade=grade==='all'||r.grades.includes(Number(grade));
+  const matchesType=type==='all'||r.type===type;
+  const matchesQuick=quickFilter==='all'||(quickFilter==='1-5'?r.grades.some(g=>g<=5):r.grades.some(g=>g>=6));
+  return matchesText&&matchesGrade&&matchesType&&matchesQuick;
+ });
+ const out=document.getElementById('resource-results');out.innerHTML='';
+ document.getElementById('resource-count').textContent='Prikazanih virov: '+filtered.length;
+ if(!filtered.length){out.innerHTML='<div class="notice">Ni zadetkov. Poskusi z drugo ključno besedo ali filtrom.</div>';return;}
+ filtered.forEach(r=>out.appendChild(resourceCard(r)));
+}
+function toggleAnswer(id){document.getElementById(id).classList.toggle('hidden');}
 
-startQuiz();
-
+const questions=[
+ {question:'Kateri planet je najbližje Soncu?',options:['Mars','Merkur','Jupiter'],answer:1},
+ {question:'Koliko je 7 × 8?',options:['54','56','64'],answer:1},
+ {question:'Katera žival je največja na svetu?',options:['Modri kit','Slon','Žirafa'],answer:0},
+ {question:'Katero je glavno mesto Slovenije?',options:['Maribor','Koper','Ljubljana'],answer:2},
+ {question:'Koliko dni ima prestopno leto?',options:['365','366','364'],answer:1}
+];
+let currentQuestion=0,score=0,answered=false;
+function startQuiz(){currentQuestion=0;score=0;document.getElementById('restart-quiz').classList.add('hidden');showQuestion();}
+function showQuestion(){
+ answered=false;const q=questions[currentQuestion];
+ document.getElementById('question-number').textContent='Vprašanje '+(currentQuestion+1)+' od '+questions.length;
+ document.getElementById('question-text').textContent=q.question;
+ document.getElementById('quiz-result').textContent='';document.getElementById('quiz-score').textContent='';
+ document.getElementById('next-question').classList.add('hidden');
+ const options=document.getElementById('quiz-options');options.innerHTML='';
+ q.options.forEach((option,index)=>{const b=document.createElement('button');b.className='quiz-option';b.textContent=option;b.onclick=()=>checkAnswer(index);options.appendChild(b);});
+}
+function checkAnswer(index){
+ if(answered)return;answered=true;const correct=questions[currentQuestion].answer;const buttons=document.querySelectorAll('.quiz-option');
+ if(index===correct){score++;document.getElementById('quiz-result').textContent='✅ Odlično! Pravilen odgovor.';}
+ else{document.getElementById('quiz-result').textContent='❌ Pravilen odgovor je: '+questions[currentQuestion].options[correct]+'.';}
+ buttons.forEach((b,i)=>{b.disabled=true;if(i===correct){b.style.borderColor='#65bd8d';b.style.background='#e7f8ee';}});
+ document.getElementById('quiz-score').textContent='Tvoje točke: '+score+' / '+questions.length;
+ if(currentQuestion<questions.length-1)document.getElementById('next-question').classList.remove('hidden');
+ else{document.getElementById('quiz-result').textContent+=' Kviz je končan!';document.getElementById('restart-quiz').classList.remove('hidden');}
+}
+function nextQuestion(){currentQuestion++;showQuestion();}
+makeGradeButtons();renderResources();startQuiz();
 </script>
-
 </body>
 </html>
