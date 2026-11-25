@@ -4,50 +4,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Svet idej – učenje, ustvarjanje, igre in kvizi za učence.">
+<meta name="description" content="Svet idej – učenje, ustvarjanje, igre, kvizi in brezplačna učna gradiva.">
 <title>Svet idej</title>
 
 <style>
 :root {
-  --navy:#071a35;
-  --navy2:#102b50;
-  --blue:#245da0;
-  --light:#edf4fc;
-  --white:#ffffff;
-  --gold:#ffd166;
-  --text:#20334d;
-  --muted:#65758b;
+  --purple:#8054d9;
+  --purple-dark:#6135b3;
+  --pink:#f58bb7;
+  --turquoise:#42c7c1;
+  --yellow:#ffcf5c;
+  --blue:#5799ec;
+  --green:#65c995;
+  --cream:#fffaf0;
+  --text:#30334c;
+  --muted:#74768a;
+  --white:#fff;
 }
 
-* { box-sizing:border-box; }
+* {box-sizing:border-box;}
 
 body {
   margin:0;
-  font-family:Arial, sans-serif;
-  background:#f3f6fb;
+  font-family:Arial,sans-serif;
+  background:var(--cream);
   color:var(--text);
 }
 
 header {
-  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  background:linear-gradient(120deg,#8054d9,#ef83b3,#45c5c1);
   color:white;
-  padding:28px 20px;
+  padding:35px 20px;
   text-align:center;
 }
 
 .logo {
-  font-size:36px;
+  font-size:38px;
   font-weight:bold;
   letter-spacing:2px;
 }
 
-header p {
-  color:#dce8f8;
-  margin-bottom:0;
-}
+header p {font-size:17px;}
 
 nav {
-  background:#102b50;
+  background:white;
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
@@ -56,21 +56,24 @@ nav {
   position:sticky;
   top:0;
   z-index:10;
+  box-shadow:0 3px 12px #33333312;
 }
 
 nav button {
   border:0;
-  background:transparent;
-  color:white;
+  background:#f0eafa;
+  color:#6135b3;
   padding:12px 16px;
-  border-radius:8px;
+  border-radius:12px;
   cursor:pointer;
   font-size:15px;
+  font-weight:bold;
 }
 
 nav button:hover,
 nav button.active {
-  background:#245da0;
+  background:var(--purple);
+  color:white;
 }
 
 main {
@@ -79,27 +82,24 @@ main {
   padding:25px 18px 50px;
 }
 
-.page { display:none; }
-.page.active { display:block; }
+.page {display:none;}
+.page.active {display:block;}
 
 .hero {
-  background:linear-gradient(135deg,#102b50,#245da0);
+  background:linear-gradient(120deg,#8054d9,#5799ec);
   color:white;
-  border-radius:18px;
-  padding:45px 25px;
+  border-radius:24px;
+  padding:48px 25px;
   text-align:center;
-  margin-bottom:25px;
+  margin-bottom:28px;
+  box-shadow:0 8px 22px #8054d933;
 }
 
-.hero h1 { font-size:34px; }
-.hero p { font-size:18px; line-height:1.6; }
+.hero h1 {font-size:35px;}
+.hero p {font-size:18px;line-height:1.6;}
 
-h2 {
-  color:var(--navy);
-  margin-top:15px;
-}
-
-h3 { color:var(--navy2); }
+h2 {color:var(--purple-dark);}
+h3 {color:var(--purple-dark);}
 
 .intro {
   color:var(--muted);
@@ -109,24 +109,21 @@ h3 { color:var(--navy2); }
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:17px;
+  gap:18px;
   margin:22px 0;
 }
 
 .card {
   background:white;
-  border-radius:13px;
+  border-radius:19px;
   padding:22px;
-  box-shadow:0 3px 12px #102b5010;
-  border:1px solid #e1e9f3;
+  box-shadow:0 4px 15px #39334a12;
+  border:2px solid transparent;
+  transition:.2s;
 }
 
-.card h3 { margin-top:0; }
-
-.card p {
-  line-height:1.5;
-  color:var(--muted);
-}
+.card h3 {margin-top:0;}
+.card p {line-height:1.5;color:var(--muted);}
 
 .card-button {
   width:100%;
@@ -137,35 +134,43 @@ h3 { color:var(--navy2); }
 }
 
 .card-button:hover {
-  border-color:#245da0;
-  transform:translateY(-2px);
+  transform:translateY(-4px);
+  border-color:var(--pink);
+  box-shadow:0 7px 20px #8054d922;
 }
+
+.card:nth-child(4n+1) {border-bottom:5px solid var(--purple);}
+.card:nth-child(4n+2) {border-bottom:5px solid var(--pink);}
+.card:nth-child(4n+3) {border-bottom:5px solid var(--turquoise);}
+.card:nth-child(4n+4) {border-bottom:5px solid var(--yellow);}
 
 .btn {
   display:inline-block;
-  background:#245da0;
+  background:var(--purple);
   color:white;
   border:0;
   padding:12px 19px;
-  border-radius:8px;
+  border-radius:12px;
   cursor:pointer;
   font-size:15px;
   margin:5px 3px;
+  font-weight:bold;
 }
 
-.btn:hover { background:#102b50; }
+.btn:hover {background:var(--purple-dark);}
 
 .btn-light {
-  background:#eaf1fa;
-  color:#102b50;
+  background:white;
+  color:var(--purple-dark);
 }
 
 .panel {
   background:white;
-  border-radius:14px;
-  padding:22px;
+  border-radius:19px;
+  padding:23px;
   margin:20px 0;
-  border:1px solid #e1e9f3;
+  border:1px solid #eee7fa;
+  box-shadow:0 3px 12px #39334a0c;
 }
 
 .subject-list {
@@ -176,61 +181,84 @@ h3 { color:var(--navy2); }
 }
 
 .subject-list button {
-  border:1px solid #cbd9eb;
-  background:#edf4fc;
-  color:#102b50;
-  border-radius:8px;
-  padding:12px 15px;
+  border:0;
+  background:#e9f8f6;
+  color:#197b76;
+  border-radius:12px;
+  padding:12px 16px;
   cursor:pointer;
+  font-weight:bold;
 }
 
 .subject-list button:hover {
-  background:#d8e8fa;
+  background:var(--turquoise);
+  color:white;
 }
 
 .notice {
-  background:#fff6df;
-  border-left:4px solid #e9b949;
-  padding:15px;
-  border-radius:7px;
+  background:#fff5d9;
+  border-left:5px solid var(--yellow);
+  padding:16px;
+  border-radius:10px;
   line-height:1.5;
+  margin:15px 0;
 }
 
 .quiz-option {
   display:block;
   width:100%;
   text-align:left;
-  padding:13px;
+  padding:14px;
   margin:9px 0;
-  border:1px solid #cbd9eb;
-  border-radius:8px;
-  background:#f5f8fc;
+  border:2px solid #eee7fa;
+  border-radius:12px;
+  background:#faf8ff;
   cursor:pointer;
   font-size:15px;
 }
 
-.quiz-option:hover { background:#e3effc; }
+.quiz-option:hover {background:#eee7fa;}
+.quiz-option:disabled {cursor:default;}
 
-#quiz-result {
-  font-weight:bold;
-  margin-top:15px;
+#quiz-result {font-weight:bold;margin-top:15px;}
+
+.pdf-card {
+  background:#fff;
+  border:2px solid #f5d6e5;
+  border-radius:17px;
+  padding:20px;
 }
+
+.pdf-card h3 {color:#b84c85;}
+
+.pdf-link {
+  display:inline-block;
+  background:#fce7f1;
+  color:#a73c76;
+  padding:10px 15px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+.pdf-link:hover {background:#f8cce0;}
 
 footer {
-  background:var(--navy);
+  background:linear-gradient(120deg,#6135b3,#8054d9);
   color:white;
   text-align:center;
-  padding:25px 15px;
+  padding:30px 15px;
 }
 
-footer p { color:#dce8f8; }
+footer p {color:#eee4ff;}
 
-.hidden { display:none; }
+.hidden {display:none!important;}
 
 @media(max-width:600px) {
-  .logo { font-size:28px; }
-  .hero h1 { font-size:27px; }
-  nav button { padding:10px; font-size:14px; }
+  .logo {font-size:28px;}
+  .hero h1 {font-size:27px;}
+  nav button {padding:10px;font-size:13px;}
 }
 </style>
 </head>
@@ -244,8 +272,9 @@ footer p { color:#dce8f8; }
 
 <nav>
   <button class="active" onclick="showPage('domov',this)">🏠 Domov</button>
-  <button onclick="showPage('ucenje',this)">📚 Učni kotiček</button>
-  <button onclick="showPage('ustvarjanje',this)">🎨 Ustvarjalni kotiček</button>
+  <button onclick="showPage('ucenje',this)">📚 Učenje</button>
+  <button onclick="showPage('pdf',this)">📄 PDF gradiva</button>
+  <button onclick="showPage('ustvarjanje',this)">🎨 Ustvarjanje</button>
   <button onclick="showPage('zabava',this)">🎮 Zabava</button>
   <button onclick="showPage('kvizi',this)">🧠 Kvizi</button>
 </nav>
@@ -255,247 +284,223 @@ footer p { color:#dce8f8; }
 <!-- DOMOV -->
 <section id="domov" class="page active">
 
-  <div class="hero">
-    <h1>Dobrodošli v Svetu idej!</h1>
-    <p>
-      Tukaj se učimo, raziskujemo, ustvarjamo in zabavamo.
-      Vsak dan lahko odkriješ nekaj novega!
-    </p>
-    <button class="btn" onclick="showPage('ucenje')">Razišči učni kotiček</button>
-    <button class="btn btn-light" onclick="showPage('ustvarjanje')">Odkrij ustvarjanje</button>
-  </div>
+<div class="hero">
+  <h1>Dobrodošli v Svetu idej! 🌈</h1>
+  <p>
+    Tukaj se učimo, raziskujemo, ustvarjamo in zabavamo.
+    Vsak dan lahko odkriješ nekaj novega!
+  </p>
+  <button class="btn" onclick="showPage('ucenje')">📚 Razišči učenje</button>
+  <button class="btn btn-light" onclick="showPage('pdf')">📄 Učni listi PDF</button>
+</div>
 
-  <h2>✨ Kaj lahko počneš?</h2>
-  <div class="grid">
-    <button class="card card-button" onclick="showPage('ucenje')">
-      <h3>📚 Učni kotiček</h3>
-      <p>Učni listi, ponavljanje in šolski predmeti od 1. do 9. razreda.</p>
-    </button>
+<h2>✨ Kaj lahko počneš?</h2>
 
-    <button class="card card-button" onclick="showPage('ustvarjanje')">
-      <h3>🎨 Ustvarjalni kotiček</h3>
-      <p>Pobarvanke, papirnate ustvarjalnice in ideje za izdelke.</p>
-    </button>
+<div class="grid">
+  <button class="card card-button" onclick="showPage('ucenje')">
+    <h3>📚 Učni kotiček</h3>
+    <p>Učenje in šolski predmeti od 1. do 9. razreda.</p>
+  </button>
 
-    <button class="card card-button" onclick="showPage('zabava')">
-      <h3>🎮 Zabava</h3>
-      <p>Uganke, besedne igre in zanimivi izzivi.</p>
-    </button>
+  <button class="card card-button" onclick="showPage('ustvarjanje')">
+    <h3>🎨 Ustvarjalni kotiček</h3>
+    <p>Pobarvanke, papirnate ustvarjalnice in ideje.</p>
+  </button>
 
-    <button class="card card-button" onclick="showPage('kvizi')">
-      <h3>🧠 Kvizi</h3>
-      <p>Preizkusi svoje znanje in zberi točke.</p>
-    </button>
-  </div>
+  <button class="card card-button" onclick="showPage('zabava')">
+    <h3>🎮 Zabava</h3>
+    <p>Uganke, besedne igre in zanimivi izzivi.</p>
+  </button>
 
-  <div class="panel">
-    <h2>🌟 Naša ideja</h2>
-    <p class="intro">
-      Svet idej je spletno mesto za radovedne učence.
-      Namenjeno je učenju, raziskovanju, ustvarjanju
-      in kakovostnemu preživljanju prostega časa.
-    </p>
-  </div>
+  <button class="card card-button" onclick="showPage('kvizi')">
+    <h3>🧠 Kvizi</h3>
+    <p>Preizkusi svoje znanje in zberi točke.</p>
+  </button>
+</div>
+
+<div class="panel">
+  <h2>🌟 Naša ideja</h2>
+  <p class="intro">
+    Svet idej je spletno mesto za radovedne učence.
+    Namenjeno je učenju, raziskovanju, ustvarjanju
+    in kakovostnemu preživljanju prostega časa.
+  </p>
+</div>
 </section>
 
 
-<!-- UČNI KOTIČEK -->
+<!-- UČENJE -->
 <section id="ucenje" class="page">
 
-  <h2>📚 UČNI KOTIČEK</h2>
-  <p class="intro">
-    Izberi svoj razred in odkrij šolske predmete ter učne vsebine.
-  </p>
+<h2>📚 UČNI KOTIČEK</h2>
+<p class="intro">Izberi razred in odkrij šolske predmete.</p>
 
-  <div class="panel">
-    <h3>📘 1.–5. razred</h3>
-    <div class="grid">
-      <button class="card card-button" onclick="showGrade(1)">
-        <h3>1. razred</h3>
-        <p>Prve črke, branje, števila in računanje.</p>
-      </button>
-      <button class="card card-button" onclick="showGrade(2)">
-        <h3>2. razred</h3>
-        <p>Branje, pisanje, računanje in okolje.</p>
-      </button>
-      <button class="card card-button" onclick="showGrade(3)">
-        <h3>3. razred</h3>
-        <p>Množenje, deljenje, besedila in narava.</p>
-      </button>
-      <button class="card card-button" onclick="showGrade(4)">
-        <h3>4. razred</h3>
-        <p>Večja števila, slovnica, družba in narava.</p>
-      </button>
-      <button class="card card-button" onclick="showGrade(5)">
-        <h3>5. razred</h3>
-        <p>Ulomki, geometrija, zgodovina in geografija.</p>
-      </button>
-    </div>
-  </div>
+<div class="panel">
+<h3>📘 1.–5. razred</h3>
+<div class="grid">
+  <button class="card card-button" onclick="showGrade(1)"><h3>1. razred</h3><p>Prve črke, branje in števila.</p></button>
+  <button class="card card-button" onclick="showGrade(2)"><h3>2. razred</h3><p>Branje, pisanje in računanje.</p></button>
+  <button class="card card-button" onclick="showGrade(3)"><h3>3. razred</h3><p>Množenje, deljenje in narava.</p></button>
+  <button class="card card-button" onclick="showGrade(4)"><h3>4. razred</h3><p>Večja števila, družba in narava.</p></button>
+  <button class="card card-button" onclick="showGrade(5)"><h3>5. razred</h3><p>Ulomki, zgodovina in geografija.</p></button>
+</div>
+</div>
 
-  <div class="panel">
-    <h3>📗 6.–9. razred</h3>
-    <div class="grid">
-      <button class="card card-button" onclick="showGrade(6)">
-        <h3>6. razred</h3>
-        <p>Utrjevanje osnovnih znanj in novi predmeti.</p>
-      </button>
-      <button class="card card-button" onclick="showGrade(7)">
-        <h3>7. razred</h3>
-        <p>Slovnica, računanje, zgodovina in geografija.</p>
-      </button>
-      <button class="card card-button" onclick="showGrade(8)">
-        <h3>8. razred</h3>
-        <p>Biologija, fizika, kemija in matematika.</p>
-      </button>
-      <button class="card card-button" onclick="showGrade(9)">
-        <h3>9. razred</h3>
-        <p>Ponavljanje in priprava na zaključne preizkuse.</p>
-      </button>
-    </div>
-  </div>
+<div class="panel">
+<h3>📗 6.–9. razred</h3>
+<div class="grid">
+  <button class="card card-button" onclick="showGrade(6)"><h3>6. razred</h3><p>Osnovna znanja in novi predmeti.</p></button>
+  <button class="card card-button" onclick="showGrade(7)"><h3>7. razred</h3><p>Slovnica, zgodovina in geografija.</p></button>
+  <button class="card card-button" onclick="showGrade(8)"><h3>8. razred</h3><p>Biologija, fizika in kemija.</p></button>
+  <button class="card card-button" onclick="showGrade(9)"><h3>9. razred</h3><p>Ponavljanje in utrjevanje znanja.</p></button>
+</div>
+</div>
 
-  <div id="grade-content" class="panel hidden">
-    <h3 id="grade-title">Predmeti</h3>
-    <p class="intro">Izberi predmet, ki ga želiš raziskati.</p>
-    <div id="subject-buttons" class="subject-list"></div>
-    <div id="subject-content" class="panel hidden"></div>
-  </div>
+<div id="grade-content" class="panel hidden">
+<h3 id="grade-title">Predmeti</h3>
+<p class="intro">Izberi predmet.</p>
+<div id="subject-buttons" class="subject-list"></div>
+<div id="subject-content" class="panel hidden"></div>
+</div>
 
-  <div class="notice">
-    📌 Učni listi v PDF-formatu se bodo dodajali postopoma.
-    Ko bodo datoteke pripravljene, jih bo mogoče odpreti,
-    prenesti in natisniti.
-  </div>
 </section>
 
 
-<!-- USTVARJALNI KOTIČEK -->
+<!-- PDF GRADIVA -->
+<section id="pdf" class="page">
+
+<h2>📄 UČNI LISTI IN PDF GRADIVA</h2>
+<p class="intro">
+  Poišči učne liste, ponavljaj snov in utrjuj svoje znanje.
+  Gradiva bomo dodajali postopoma.
+</p>
+
+<div class="notice">
+  📌 Tukaj bodo zbrani učni listi za tiskanje, ponavljanje
+  in samostojno učenje.
+</div>
+
+<div class="panel">
+<h3>📘 Izberi razred</h3>
+<div class="grid">
+  <button class="card card-button" onclick="showPDFGrade(1)">1. razred</button>
+  <button class="card card-button" onclick="showPDFGrade(2)">2. razred</button>
+  <button class="card card-button" onclick="showPDFGrade(3)">3. razred</button>
+  <button class="card card-button" onclick="showPDFGrade(4)">4. razred</button>
+  <button class="card card-button" onclick="showPDFGrade(5)">5. razred</button>
+  <button class="card card-button" onclick="showPDFGrade(6)">6. razred</button>
+  <button class="card card-button" onclick="showPDFGrade(7)">7. razred</button>
+  <button class="card card-button" onclick="showPDFGrade(8)">8. razred</button>
+  <button class="card card-button" onclick="showPDFGrade(9)">9. razred</button>
+</div>
+</div>
+
+<div id="pdf-content" class="panel hidden">
+<h3 id="pdf-title">PDF gradiva</h3>
+<p>Izberi predmet:</p>
+<div id="pdf-subjects" class="subject-list"></div>
+<div id="pdf-results"></div>
+</div>
+
+</section>
+
+
+<!-- USTVARJANJE -->
 <section id="ustvarjanje" class="page">
 
-  <h2>🎨 USTVARJALNI KOTIČEK</h2>
-  <p class="intro">Ustvarjaj, raziskuj in razvijaj svojo domišljijo!</p>
+<h2>🎨 USTVARJALNI KOTIČEK</h2>
+<p class="intro">Ustvarjaj, raziskuj in razvijaj svojo domišljijo!</p>
 
-  <div class="grid">
-    <button class="card card-button" onclick="creative('Papirnate ustvarjalnice')">
-      <h3>✂️ Papirnate ustvarjalnice</h3>
-      <p>Izdelki iz papirja, origami in dekoracija.</p>
-    </button>
+<div class="grid">
+  <button class="card card-button" onclick="creative('Papirnate ustvarjalnice')"><h3>✂️ Papirnate ustvarjalnice</h3><p>Izdelki iz papirja in origami.</p></button>
+  <button class="card card-button" onclick="creative('Pobarvanke')"><h3>🖍️ Pobarvanke</h3><p>Živali, narava in prazniki.</p></button>
+  <button class="card card-button" onclick="creative('Odpadni materiali')"><h3>♻️ Odpadni materiali</h3><p>Izdelki iz tulcev in škatel.</p></button>
+  <button class="card card-button" onclick="creative('Praznično ustvarjanje')"><h3>🎄 Praznično ustvarjanje</h3><p>Ideje za praznične dni.</p></button>
+  <button class="card card-button" onclick="creative('Risanje po korakih')"><h3>✏️ Risanje po korakih</h3><p>Nauči se risati različne motive.</p></button>
+  <button class="card card-button" onclick="creative('Voščilnice')"><h3>💌 Voščilnice</h3><p>Voščilnice za posebne priložnosti.</p></button>
+</div>
 
-    <button class="card card-button" onclick="creative('Pobarvanke')">
-      <h3>🖍️ Pobarvanke</h3>
-      <p>Živali, narava, prazniki in različni motivi.</p>
-    </button>
-
-    <button class="card card-button" onclick="creative('Ustvarjanje iz odpadnih materialov')">
-      <h3>♻️ Ustvarjanje iz odpadnih materialov</h3>
-      <p>Izdelki iz tulcev, škatel in drugih materialov.</p>
-    </button>
-
-    <button class="card card-button" onclick="creative('Praznično ustvarjanje')">
-      <h3>🎄 Praznično ustvarjanje</h3>
-      <p>Božič, velika noč, noč čarovnic in drugi prazniki.</p>
-    </button>
-
-    <button class="card card-button" onclick="creative('Risanje po korakih')">
-      <h3>✏️ Risanje po korakih</h3>
-      <p>Nauči se narisati različne motive.</p>
-    </button>
-
-    <button class="card card-button" onclick="creative('Voščilnice')">
-      <h3>💌 Voščilnice</h3>
-      <p>Ideje za rojstne dneve in posebne priložnosti.</p>
-    </button>
-  </div>
-
-  <div id="creative-content" class="panel hidden"></div>
+<div id="creative-content" class="panel hidden"></div>
 </section>
 
 
 <!-- ZABAVA -->
 <section id="zabava" class="page">
 
-  <h2>🎮 ZABAVA</h2>
-  <p class="intro">Malo razvedrila, veliko zabave in nekaj razmišljanja!</p>
+<h2>🎮 ZABAVA</h2>
+<p class="intro">Malo razvedrila in veliko zabave!</p>
 
-  <div class="grid">
-    <div class="card">
-      <h3>🧩 Uganka</h3>
-      <p>Imam štiri noge, a ne hodim. Kaj sem?</p>
-      <button class="btn" onclick="showAnswer()">Pokaži odgovor</button>
-      <p id="riddle-answer" class="hidden"><b>Miza!</b></p>
-    </div>
-
-    <div class="card">
-      <h3>🔤 Besedna igra</h3>
-      <p>Koliko besed lahko sestaviš iz črk besede DOM?</p>
-      <button class="btn" onclick="document.getElementById('word-answer').classList.toggle('hidden')">Namig</button>
-      <p id="word-answer" class="hidden">Na primer: dom, mod.</p>
-    </div>
-
-    <div class="card">
-      <h3>🧠 Logični izziv</h3>
-      <p>Koliko je 3 + 3 × 2?</p>
-      <button class="btn" onclick="document.getElementById('logic-answer').classList.toggle('hidden')">Preveri</button>
-      <p id="logic-answer" class="hidden">Odgovor je 9, ker najprej množimo.</p>
-    </div>
-
-    <div class="card">
-      <h3>🌍 Zanimivosti</h3>
-      <p>Ali veš, da hobotnica nima kosti?</p>
-      <p>Njeno telo je zelo prožno!</p>
-    </div>
+<div class="grid">
+  <div class="card">
+    <h3>🧩 Uganka</h3>
+    <p>Imam štiri noge, a ne hodim. Kaj sem?</p>
+    <button class="btn" onclick="showAnswer()">Pokaži odgovor</button>
+    <p id="riddle-answer" class="hidden"><b>Miza!</b></p>
   </div>
+
+  <div class="card">
+    <h3>🔤 Besedna igra</h3>
+    <p>Koliko besed lahko sestaviš iz črk besede DOM?</p>
+    <button class="btn" onclick="document.getElementById('word-answer').classList.toggle('hidden')">Namig</button>
+    <p id="word-answer" class="hidden">Na primer: dom, mod.</p>
+  </div>
+
+  <div class="card">
+    <h3>🧠 Logični izziv</h3>
+    <p>Koliko je 3 + 3 × 2?</p>
+    <button class="btn" onclick="document.getElementById('logic-answer').classList.toggle('hidden')">Preveri</button>
+    <p id="logic-answer" class="hidden">Odgovor je 9.</p>
+  </div>
+
+  <div class="card">
+    <h3>🌍 Zanimivost</h3>
+    <p>Hobotnica nima kosti. Njeno telo je zelo prožno!</p>
+  </div>
+</div>
 </section>
 
 
 <!-- KVIZI -->
 <section id="kvizi" class="page">
 
-  <h2>🧠 KVIZI</h2>
-  <p class="intro">Odgovori na vprašanja in preveri svoje znanje!</p>
+<h2>🧠 KVIZI</h2>
+<p class="intro">Odgovori na vprašanja in preveri svoje znanje!</p>
 
-  <div class="panel">
-    <h3>🌟 Splošni kviz</h3>
-    <p id="question-number">Vprašanje 1 od 5</p>
-    <h3 id="question-text"></h3>
-    <div id="quiz-options"></div>
-    <p id="quiz-result"></p>
-    <p id="quiz-score"></p>
-    <button id="next-question" class="btn hidden" onclick="nextQuestion()">Naslednje vprašanje</button>
-    <button id="restart-quiz" class="btn hidden" onclick="startQuiz()">Ponovi kviz</button>
-  </div>
-
+<div class="panel">
+<h3>🌟 Splošni kviz</h3>
+<p id="question-number"></p>
+<h3 id="question-text"></h3>
+<div id="quiz-options"></div>
+<p id="quiz-result"></p>
+<p id="quiz-score"></p>
+<button id="next-question" class="btn hidden" onclick="nextQuestion()">Naslednje vprašanje</button>
+<button id="restart-quiz" class="btn hidden" onclick="startQuiz()">Ponovi kviz</button>
+</div>
 </section>
 
 </main>
 
 <footer>
-  <h3>💡 SVET IDEJ</h3>
-  <p>Učenje · Ustvarjanje · Zabava · Znanje</p>
-  <p>Vsak dan je priložnost za novo idejo!</p>
+<h3>💡 SVET IDEJ</h3>
+<p>Učenje · Ustvarjanje · Zabava · Znanje</p>
+<p>Vsak dan je priložnost za novo idejo! 🌈</p>
 </footer>
 
 
 <script>
-function showPage(id, button) {
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
-  });
 
-  const selected = document.getElementById(id);
-  if (selected) selected.classList.add('active');
+function showPage(id,button) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 
-  document.querySelectorAll('nav button').forEach(btn => {
-    btn.classList.remove('active');
-  });
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
 
-  if (button) {
+  if(button) {
     button.classList.add('active');
   } else {
-    const navButton = [...document.querySelectorAll('nav button')]
-      .find(btn => btn.getAttribute('onclick').includes("'" + id + "'"));
-    if (navButton) navButton.classList.add('active');
+    const navButton=[...document.querySelectorAll('nav button')]
+      .find(b=>b.getAttribute('onclick')?.includes("'" + id + "'"));
+    if(navButton) navButton.classList.add('active');
   }
 
   window.scrollTo({top:0,behavior:'smooth'});
@@ -514,58 +519,124 @@ const subjects = {
 };
 
 function showGrade(grade) {
-  const area = document.getElementById('grade-content');
-  const buttons = document.getElementById('subject-buttons');
-  const content = document.getElementById('subject-content');
+  const area=document.getElementById('grade-content');
+  const buttons=document.getElementById('subject-buttons');
+  const content=document.getElementById('subject-content');
 
   area.classList.remove('hidden');
   content.classList.add('hidden');
-  document.getElementById('grade-title').textContent = grade + '. razred – predmeti';
-  buttons.innerHTML = '';
+  document.getElementById('grade-title').textContent=grade+'. razred – predmeti';
+  buttons.innerHTML='';
 
-  subjects[grade].forEach(subject => {
-    const button = document.createElement('button');
-    button.textContent = subject;
-    button.onclick = () => showSubject(grade, subject);
+  subjects[grade].forEach(subject=>{
+    const button=document.createElement('button');
+    button.textContent=subject;
+    button.onclick=()=>showSubject(grade,subject);
     buttons.appendChild(button);
   });
 
   area.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function showSubject(grade, subject) {
-  const content = document.getElementById('subject-content');
+function showSubject(grade,subject) {
+  const content=document.getElementById('subject-content');
   content.classList.remove('hidden');
-
-  content.innerHTML = `
+  content.innerHTML=`
     <h3>${subject} – ${grade}. razred</h3>
-    <p>Na tem mestu bodo učni listi, naloge in vaje za predmet ${subject}.</p>
-    <div class="notice">
-      📄 Vsebina se pripravlja. Učni listi bodo dodani v PDF-formatu,
-      ko bodo pripravljeni.
-    </div>
+    <p>Na tem mestu bodo učni listi, naloge in vaje.</p>
+    <div class="notice">📚 Vsebino bomo dodajali postopoma.</div>
   `;
 }
 
+function showPDFGrade(grade) {
+  const area=document.getElementById('pdf-content');
+  const buttons=document.getElementById('pdf-subjects');
+  const results=document.getElementById('pdf-results');
+
+  area.classList.remove('hidden');
+  results.innerHTML='';
+  document.getElementById('pdf-title').textContent=grade+'. razred – PDF gradiva';
+  buttons.innerHTML='';
+
+  subjects[grade].forEach(subject=>{
+    const button=document.createElement('button');
+    button.textContent=subject;
+    button.onclick=()=>showPDFSubject(grade,subject);
+    buttons.appendChild(button);
+  });
+
+  area.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* Tukaj bova dodajali preverjena PDF gradiva.
+   Primer:
+   {grade:5, subject:'Geografija', title:'Učni list', url:'pdf/ucni-list.pdf'}
+*/
+const pdfResources=[];
+
+function showPDFSubject(grade,subject) {
+  const results=document.getElementById('pdf-results');
+  results.innerHTML='';
+
+  const matching=pdfResources.filter(item=>
+    item.grade===grade && item.subject===subject
+  );
+
+  const title=document.createElement('h3');
+  title.textContent=subject+' – '+grade+'. razred';
+  results.appendChild(title);
+
+  if(matching.length===0) {
+    const message=document.createElement('div');
+    message.className='notice';
+    message.textContent='📄 Učni listi za ta predmet bodo dodani postopoma.';
+    results.appendChild(message);
+    return;
+  }
+
+  matching.forEach(item=>{
+    const card=document.createElement('div');
+    card.className='pdf-card';
+
+    const heading=document.createElement('h3');
+    heading.textContent='📄 '+item.title;
+
+    const link=document.createElement('a');
+    link.className='pdf-link';
+    link.href=item.url;
+    link.target='_blank';
+    link.rel='noopener noreferrer';
+    link.textContent='Odpri PDF';
+
+    card.append(heading,link);
+    results.appendChild(card);
+  });
+}
+
 function creative(category) {
-  const content = document.getElementById('creative-content');
+  const content=document.getElementById('creative-content');
   content.classList.remove('hidden');
 
-  const ideas = {
-    'Papirnate ustvarjalnice':'Izdelaj papirnate rože, živali, origami ali okraske.',
-    'Pobarvanke':'Kmalu bodo na voljo pobarvanke različnih motivov za tiskanje.',
-    'Ustvarjanje iz odpadnih materialov':'Iz tulcev in škatel lahko ustvariš zanimive nove izdelke.',
-    'Praznično ustvarjanje':'Odkrij ideje za božič, veliko noč, jesen in druge praznike.',
-    'Risanje po korakih':'Nauči se risati živali, predmete in like po enostavnih korakih.',
-    'Voščilnice':'Ustvari posebno voščilnico za rojstni dan ali praznik.'
+  const ideas={
+    'Papirnate ustvarjalnice':'Izdelaj papirnate rože, živali ali origami.',
+    'Pobarvanke':'Kmalu bodo na voljo pobarvanke za tiskanje.',
+    'Odpadni materiali':'Iz tulcev in škatel ustvari nove izdelke.',
+    'Praznično ustvarjanje':'Odkrij ideje za praznike.',
+    'Risanje po korakih':'Nauči se risati različne motive.',
+    'Voščilnice':'Ustvari posebno voščilnico.'
   };
 
-  content.innerHTML = `
-    <h3>${category}</h3>
-    <p>${ideas[category]}</p>
-    <p class="notice">🎨 Ideje in navodila za ustvarjanje bomo dodajali postopoma.</p>
-  `;
+  const heading=document.createElement('h3');
+  heading.textContent=category;
 
+  const paragraph=document.createElement('p');
+  paragraph.textContent=ideas[category];
+
+  const notice=document.createElement('div');
+  notice.className='notice';
+  notice.textContent='🎨 Ideje in navodila bomo dodajali postopoma.';
+
+  content.replaceChildren(heading,paragraph,notice);
   content.scrollIntoView({behavior:'smooth',block:'center'});
 }
 
@@ -575,100 +646,79 @@ function showAnswer() {
 
 
 // KVIZ
-const questions = [
-  {
-    question:'Kateri planet je najbližje Soncu?',
-    options:['Mars','Merkur','Jupiter'],
-    answer:1
-  },
-  {
-    question:'Koliko je 7 × 8?',
-    options:['54','56','64'],
-    answer:1
-  },
-  {
-    question:'Katera žival je največja na svetu?',
-    options:['Modri kit','Slon','Žirafa'],
-    answer:0
-  },
-  {
-    question:'Katero je glavno mesto Slovenije?',
-    options:['Maribor','Koper','Ljubljana'],
-    answer:2
-  },
-  {
-    question:'Koliko dni ima prestopno leto?',
-    options:['365','366','364'],
-    answer:1
-  }
+
+const questions=[
+  {question:'Kateri planet je najbližje Soncu?',options:['Mars','Merkur','Jupiter'],answer:1},
+  {question:'Koliko je 7 × 8?',options:['54','56','64'],answer:1},
+  {question:'Katera žival je največja na svetu?',options:['Modri kit','Slon','Žirafa'],answer:0},
+  {question:'Katero je glavno mesto Slovenije?',options:['Maribor','Koper','Ljubljana'],answer:2},
+  {question:'Koliko dni ima prestopno leto?',options:['365','366','364'],answer:1}
 ];
 
-let currentQuestion = 0;
-let score = 0;
-let answered = false;
+let currentQuestion=0;
+let score=0;
+let answered=false;
 
 function startQuiz() {
-  currentQuestion = 0;
-  score = 0;
+  currentQuestion=0;
+  score=0;
   document.getElementById('restart-quiz').classList.add('hidden');
   showQuestion();
 }
 
 function showQuestion() {
-  answered = false;
+  answered=false;
+  const q=questions[currentQuestion];
 
-  const q = questions[currentQuestion];
-
-  document.getElementById('question-number').textContent =
-    'Vprašanje ' + (currentQuestion + 1) + ' od ' + questions.length;
-
-  document.getElementById('question-text').textContent = q.question;
-  document.getElementById('quiz-result').textContent = '';
-  document.getElementById('quiz-score').textContent = '';
+  document.getElementById('question-number').textContent=
+    'Vprašanje '+(currentQuestion+1)+' od '+questions.length;
+  document.getElementById('question-text').textContent=q.question;
+  document.getElementById('quiz-result').textContent='';
+  document.getElementById('quiz-score').textContent='';
   document.getElementById('next-question').classList.add('hidden');
 
-  const options = document.getElementById('quiz-options');
-  options.innerHTML = '';
+  const options=document.getElementById('quiz-options');
+  options.innerHTML='';
 
-  q.options.forEach((option,index) => {
-    const button = document.createElement('button');
-    button.className = 'quiz-option';
-    button.textContent = option;
-    button.onclick = () => checkAnswer(index);
+  q.options.forEach((option,index)=>{
+    const button=document.createElement('button');
+    button.className='quiz-option';
+    button.textContent=option;
+    button.onclick=()=>checkAnswer(index);
     options.appendChild(button);
   });
 }
 
 function checkAnswer(index) {
-  if (answered) return;
-  answered = true;
+  if(answered) return;
+  answered=true;
 
-  const correct = questions[currentQuestion].answer;
-  const buttons = document.querySelectorAll('.quiz-option');
+  const correct=questions[currentQuestion].answer;
+  const buttons=document.querySelectorAll('.quiz-option');
 
-  if (index === correct) {
+  if(index===correct) {
     score++;
-    document.getElementById('quiz-result').textContent = '✅ Odlično! Pravilen odgovor.';
+    document.getElementById('quiz-result').textContent='✅ Odlično! Pravilen odgovor.';
   } else {
-    document.getElementById('quiz-result').textContent =
-      '❌ Ni čisto prav. Pravilen odgovor je: ' +
-      questions[currentQuestion].options[correct] + '.';
+    document.getElementById('quiz-result').textContent=
+      '❌ Pravilen odgovor je: '+questions[currentQuestion].options[correct]+'.';
   }
 
-  buttons.forEach((button,i) => {
-    button.disabled = true;
-    if (i === correct) button.style.borderColor = '#27834b';
+  buttons.forEach((button,i)=>{
+    button.disabled=true;
+    if(i===correct) {
+      button.style.borderColor='#65c995';
+      button.style.background='#e7f8ee';
+    }
   });
 
-  document.getElementById('quiz-score').textContent =
-    'Tvoje točke: ' + score + ' / ' + questions.length;
+  document.getElementById('quiz-score').textContent=
+    'Tvoje točke: '+score+' / '+questions.length;
 
-  if (currentQuestion < questions.length - 1) {
+  if(currentQuestion<questions.length-1) {
     document.getElementById('next-question').classList.remove('hidden');
   } else {
-    document.getElementById('quiz-result').textContent +=
-      ' Kviz je končan!';
-
+    document.getElementById('quiz-result').textContent+=' Kviz je končan!';
     document.getElementById('restart-quiz').classList.remove('hidden');
   }
 }
@@ -679,6 +729,7 @@ function nextQuestion() {
 }
 
 startQuiz();
+
 </script>
 
 </body>
